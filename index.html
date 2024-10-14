@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Country Form</title>
+</head>
+<body>
+
+    <h1>Country Search</h1>
+    <div class="box_placeholder">
+        <form id="stringForm" action="/check-country" method="POST">
+            <input type="text" id="userInput" name="userInput" placeholder="Enter A Country Here" required>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <div class="results-css" id="result">
+        <!-- Response here with addedd css so that it is applied -->
+    </div>
+
+    <script>
+        document.getElementById('stringForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            /* prevent the form being submitted normally so that
+               users can search multiple times */
+            const userInput = document.getElementById('userInput').value;
+
+            // send post request using fetch api
+            fetch('/check-country', {
+                method: 'POST',
+                // sets the type of content being sent
+                headers: {
+                    // formatted as url-encoded data
+                    'Content-Type': 'application/x-www-form-urlencoded' 
+                },
+                // convert the user input into a URL-encoded string format
+                body: new URLSearchParams({
+                    userInput: userInput
+                })
+            })
+            .then(response => response.text()) // Get the response text
+            .then(data => {
+                document.getElementById('result').innerHTML = data; // display results
+                document.getElementById('userInput').value = ''; // clear input field after submission
+            })
+            .catch(error => console.error('Error:', error)); // log errors
+        });
+    </script>
+
+</body>
+</html>

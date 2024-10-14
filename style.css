@@ -1,0 +1,40 @@
+.box_placeholder {
+
+    background-color: #f9f9f9;   
+    border: 1px solid #ddd;         
+    border-radius: 5px;             
+    padding: 20px;                  
+    max-width: 400px;               
+    margin: 20px auto;              
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    margin-top: 50px;
+    text-align: center;    
+}
+
+h1 {
+    font-size: 40px;                  
+    color: #6f5f80;                   
+    text-align: center;               
+    margin: 0 0 20px;                
+    text-transform: uppercase;        
+    letter-spacing: 2px;              
+    font-weight: 600;                  
+    transition: color 0.3s;           
+}
+
+body {
+    background-color: #f0ebeb; 
+}
+
+.results-css {
+    background-color: #fff;              
+    border: 1px solid #ccc;              
+    padding: 15px;                       
+    margin-top: 60px;                   
+    border-radius: 5px;                  
+    text-align: center;                  
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    height: 60px;
+    margin: 20px auto;
+}
